@@ -1,14 +1,19 @@
 import React from 'react'
 
-const Matchup = () => {
-    let matchup_arr = [...Array(10).keys()]
-    
+const Matchup = ({matchups}) => {
     return (
-        <div>
-            {matchup_arr.map((matchup) => (
-                <p> Number in my array: {matchup}</p>
+        <>
+            {matchups.map((matchup) => (
+                <div className = "matchup" key = {matchup}>
+                    <p className = "seed">1</p>
+                    <p className = "team">Baylor</p>
+                    <p className = "score">86</p>
+                    <p className = "seed">1</p>
+                    <p className = "team">Gonzaga</p>
+                    <p className = "score">70</p>
+                </div>
             ))}
-        </div>
+        </>
     )
 }
 
