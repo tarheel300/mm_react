@@ -1,6 +1,8 @@
 import React from 'react'
+//import results from './2021_results.json'
 
 const Matchup = ({matchups}) => {
+
     return (
         <>
             {matchups.map((matchup) => (
