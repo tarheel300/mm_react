@@ -2,51 +2,8 @@
   text-align: center;
 }
 
-.bracket {
-  background-color: #EDEDED;
-  display: grid;
-  height: 900px;
-  grid-template-columns: repeat(11, 140px); /*Need to figure out alignment around contained grid sizes*/
-  align-content: center;
-  justify-content: center;
-  grid-gap: 20px;
-  width: 1800px;
-}
-
-.column {
-  display: grid;
-  align-items: center;
-  height: inherit; /*Why does this change behavior of center on this column of grid, and the behavior of other columns?*/
-}
-
-.matchup {
-  display: grid;
-  background-color: #7BAFD4 ;
-  box-shadow: 2px 2px #13294B;
-  grid-template-columns: 20px 100px 20px;
-  grid-template-rows: repeat(2, 20px);
-  align-items: center;
-  border-radius: 10px;
-  height: 40px;
-}
-
-.seed {
-  text-align: center;
-}
-
-.team {
-  text-align: left;
-}
-
-.score {
-  text-align: center;
-}
-
-.winner {
-  font-weight: bolder;
-}
-
-p {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 11px;
+.game {
+  background-color: red;
+  display: flexbox;
+  flex-direction: row;
 }

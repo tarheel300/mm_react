@@ -1,17 +1,37 @@
 //import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react'
 import Header from './components/Header'
-import Bracket from './components/Bracket'
+import Games from './components/Games'
 
 function App() {
-  const selectTeam = (id) => {
-    console.log('test')
-  }
+  const [games, setGames] = useState(
+    [{
+      id: 4
+      , seed: 1
+      , team: 'North Carolina'
+    }
+    , {
+      id: 5
+      , seed: 4
+      , team: 'Duke'
+    }
+    , {
+      id: 6
+      , seed: 2
+      , team: 'Viriginia'
+    }
+    , {
+      id: 7
+      , seed: 3
+      , team: 'Florida State'
+    }]
+    )
 
   return (
     <div className="container">
       <Header />
-      <Bracket onSelect={selectTeam}/>
+      <Games games={games}/>
     </div>
   );
 }
