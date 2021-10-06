@@ -2,8 +2,21 @@
   text-align: center;
 }
 
+p {
+  font-size: 1.5ch;
+}
+
 .game {
-  background-color: red;
+  background-color: lightskyblue;
   display: flexbox;
   flex-direction: row;
+}
+
+.team {
+  display: grid;
+  border-color: red;
+  border-style: solid;
+  grid-template-columns: 20px 200px;
+  align-items: center;
+  height: 40px;
 }
