@@ -2,10 +2,10 @@
 import './App.css';
 import {useState} from 'react'
 import Header from './components/Header'
-import Games from './components/Games'
+import Bracket from './components/Bracket'
 
 function App() {
-  const [games, setGames] = useState(
+  const [bracket, setBracket] = useState(
     [{
       id: 'G1'
       , location: null
@@ -29,6 +29,7 @@ function App() {
     }]
     )
 
+    /*
   //pick winner
   const selectWinner = (team_id) => {
     //currently using string lengths, worth looking at using JSON searching later
@@ -39,13 +40,15 @@ function App() {
 
     console.log('Selected', team_id)
   }
+  */
 
   return (
     <div className="container">
       <Header />
-      <Games games={games} selectWinner={selectWinner}/>
+      <Bracket bracket={bracket} />
     </div>
   );
 }
 
 export default App;
+//selectWinner={selectWinner}
