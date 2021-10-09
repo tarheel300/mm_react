@@ -41,11 +41,18 @@ function App() {
     console.log('Selected', team_id)
   }
   */
+  //Update the Location
+  const selectWinner = (id) => {
+    console.log("I Ran")
+    setBracket(bracket.map((game) => game.id === 'G1' 
+      ? { ...game, location: 'Atlanta, GA'} : game))
+  }
 
   return (
     <div className="container">
       <Header />
-      <Bracket bracket={bracket} />
+      <Bracket bracket={bracket} selectWinner={selectWinner}/>
+      <button id="clickme" onClick={selectWinner}>Test</button>
     </div>
   );
 }
