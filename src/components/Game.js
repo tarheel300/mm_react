@@ -3,10 +3,11 @@ import Team from './Team'
 
 const Game = ({game, selectWinner}) => {
     return (
-        <div key={game.id} className = "game">
+        <div className = "game">
+            {console.log(game.teams)}
             <p>{game.location}</p>
             {game.teams.map((team) => (
-                <Team team={team} selectWinner={selectWinner} />
+                <Team team={team} selectWinner={selectWinner} key={team.team_id}/>
             ))}
         </div>
     )

@@ -5,7 +5,7 @@ const Bracket = ({bracket, selectWinner}) => {
     return (
         <div className = "bracket">
             {bracket.map((game) => (
-                <Game game={game} selectWinner={selectWinner}/>
+                <Game game={game} selectWinner={selectWinner} key={game.id}/>
             ))}
         </div>
     )

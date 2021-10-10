@@ -43,9 +43,11 @@ function App() {
   */
   //Update the Location
   const selectWinner = (id) => {
-    console.log("I Ran")
-    setBracket(bracket.map((game) => game.id === 'G1' 
-      ? { ...game, location: 'Atlanta, GA'} : game))
+    //let myTest = [...bracket].findIndex((x) => x.id === 'G1')
+    //console.log(myTest)
+
+    setBracket(bracket.map((game) => game.id === 'G1'
+      ? { ...game, location: 'Atlanta, GA', teams: {...game.teams, seed: 1}} : game))
   }
 
   return (
