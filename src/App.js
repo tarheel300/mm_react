@@ -41,13 +41,38 @@ function App() {
     console.log('Selected', team_id)
   }
   */
+
+  function getNextGameId (gameId) {
+    return bracket.find(x => x.id === gameId).next_id.slice(0, -1);
+  }
+
+  function getGameIndex (gameId) {
+    return bracket.findIndex(x => x.id === gameId);
+  }
+
+  function updateGameInfo (id, fromIndex, toIndex) {
+    let fromGame = bracket[fromIndex]
+    let toGame = bracket[toIndex]
+    let teamIndex = fromGame.next_id.slice(-1) == 'T' ? 0 : 1
+    
+    //Need to find the index of the team that was clicked!!!
+    //Then use that to get the values that the next 2 lines should be using to update their values.
+    toGame.teams[teamIndex].seed = 1
+    toGame.teams[teamIndex].team = 'North Carolina'
+
+    return toGame
+  }
   //Update the Location
   const selectWinner = (id) => {
-    //let myTest = [...bracket].findIndex((x) => x.id === 'G1')
-    //console.log(myTest)
-
-    setBracket(bracket.map((game) => game.id === 'G1'
+    let gameId = id.toString().slice(0, -1)
+    let toGameId = getNextGameId(gameId);
+    let fromGameIndex = getGameIndex(gameId)
+    let toGameIndex = getGameIndex(toGameId)
+    updateGameInfo(id, fromGameIndex, toGameIndex)
+    console.log(toGameIndex)
+    /*setBracket(bracket.map((game) => game.id === 'G1'
       ? { ...game, location: 'Atlanta, GA', teams: {...game.teams, seed: 1}} : game))
+      */
   }
 
   return (
