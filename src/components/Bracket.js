@@ -1,11 +1,11 @@
 import React from 'react'
-import Game from './Game'
+import Round from './Round'
 
-const Bracket = ({bracket, selectWinner, rounds}) => {
+const Bracket = ({bracket, selectWinner}) => {
     return (
         <div className = "bracket">
-           {bracket.map((game) => (
-                <Game game={game} selectWinner={selectWinner} key={game.id}/>
+           {Array.from(new Set(bracket.map(a => a.round))).map((round) => (
+                <Round bracket={bracket} selectWinner={selectWinner} round={round} key={round}/>
             ))}
         </div>
     )

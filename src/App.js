@@ -5,41 +5,33 @@ import Header from './components/Header'
 import Bracket from './components/Bracket'
 
 function App() {
+  //assumed to be sorted by round desc, game id asc
   const [bracket, setBracket] = useState(
     [{
-      id: 3
-      , location: 'Roanoke, VA'
-      , teams: [{team_id: '3T', seed: 2, team: 'Virigina'}
-              , {team_id: '3B', seed: 3, team: 'Florida State'}]
-      , round: 2
-      , round_bgn: true
-      , round_end: false
-      , next_id: '1B'
-    }
-    , {
       id: 2
       , location: 'Chapel Hill, NC'
       , teams: [{team_id: '2T', seed: 1, team: 'North Carolina'}
               , {team_id: '2B', seed: 4, team: 'Duke'}]
-      , round: 2
-      , round_bgn: false
-      , round_end: true
+      , round: 'R2'
       , next_id: '1T'
+    }
+    , {
+      id: 3
+      , location: 'Roanoke, VA'
+      , teams: [{team_id: '3T', seed: 2, team: 'Virigina'}
+              , {team_id: '3B', seed: 3, team: 'Florida State'}]
+      , round: 'R2'
+      , next_id: '1B'
     }
     , {
       id: 1
       , location: 'Greensboro, NC'
       , teams: [{team_id: '1T', seed: null, team: null}
               , {team_id: '1B', seed: null, team: null}]
-      , round: 1
-      , round_bgn: true
-      , round_end: true
+      , round: 'R1'
       , next_id: '0T'
     }]
     )
-
-  //will look to determine this dynamically, but for now going hardcoded
-  const rounds = [2, 1, 0]
 
   function getNextGameId (gameId) {
     return bracket.find(x => x.id === +gameId).next_id.slice(0, -1);
@@ -68,6 +60,11 @@ function App() {
     let toGameId = +getNextGameId(gameId);
     let fromGameIndex = getGameIndex(gameId)
     let toGameIndex = getGameIndex(toGameId)
+    //if no game to update, stop the function
+    if (toGameIndex < 0) {
+      return
+    }
+
     let newGame = updateGameInfo(id, fromGameIndex, toGameIndex)
 
     setBracket(bracket.map((game) => game.id === toGameId
@@ -78,7 +75,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <Bracket bracket={bracket} selectWinner={selectWinner} rounds={rounds}/>
+      <Bracket bracket={bracket} selectWinner={selectWinner}/>
     </div>
   );
 }
