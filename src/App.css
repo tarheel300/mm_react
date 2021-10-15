@@ -8,7 +8,7 @@ p {
 
 .bracket {
   display: grid;
-  grid-template-columns: repeat(2,1fr); /*Need to figure out how to make dynamic*/
+  grid-template-columns: repeat(3,1fr); /*Need to figure out how to make dynamic*/
 }
 
 .round {

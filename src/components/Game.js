@@ -4,7 +4,7 @@ import Team from './Team'
 const Game = ({game, selectWinner}) => {
     return (
         <div className = "game">
-            <p>{game.location}</p>
+            <p>{game.location == null ? 'TBD': game.location}</p>
             {game.teams.map((team) => (
                 <Team team={team} selectWinner={selectWinner} key={team.team_id}/>
             ))}
