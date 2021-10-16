@@ -10,48 +10,48 @@ function App() {
     [{
       id: 4
       , location: 'Chapel Hill, NC'
-      , teams: [{team_id: '2T', seed: 1, team: 'North Carolina'}
-              , {team_id: '2B', seed: 8, team: 'Duke'}]
+      , teams: [{team_id: '4T', seed: 1, team: 'North Carolina'}
+              , {team_id: '4B', seed: 8, team: 'Duke'}]
       , round: 'R3'
       , next_id: '2T'
     }
     , {
       id: 5
       , location: 'Greensboro, NC'
-      , teams: [{team_id: '3T', seed: 4, team: 'Syracuse'}
-              , {team_id: '3B', seed: 5, team: 'Boston College'}]
+      , teams: [{team_id: '5T', seed: 4, team: 'Syracuse'}
+              , {team_id: '5B', seed: 5, team: 'Boston College'}]
       , round: 'R3'
       , next_id: '2B'
     }
     , {
       id: 6
       , location: 'Roanoke, VA'
-      , teams: [{team_id: '2T', seed: 2, team: 'Virginia'}
-              , {team_id: '2B', seed: 7, team: 'Notre Dame'}]
+      , teams: [{team_id: '6T', seed: 2, team: 'Virginia'}
+              , {team_id: '6B', seed: 7, team: 'Notre Dame'}]
       , round: 'R3'
       , next_id: '3T'
     }
     , {
       id: 7
       , location: 'Greensboro, NC'
-      , teams: [{team_id: '3T', seed: 3, team: 'Florida State'}
-              , {team_id: '3B', seed: 6, team: 'Miami'}]
+      , teams: [{team_id: '7T', seed: 3, team: 'Florida State'}
+              , {team_id: '7B', seed: 6, team: 'Miami'}]
       , round: 'R3'
       , next_id: '3B'
     }
     , {
       id: 2
       , location: 'Greensboro, NC'
-      , teams: [{team_id: '1T', seed: null, team: null}
-              , {team_id: '1B', seed: null, team: null}]
+      , teams: [{team_id: '2T', seed: null, team: null}
+              , {team_id: '2B', seed: null, team: null}]
       , round: 'R2'
       , next_id: '1T'
     }
     , {
       id: 3
       , location: 'Greensboro, NC'
-      , teams: [{team_id: '1T', seed: null, team: null}
-              , {team_id: '1B', seed: null, team: null}]
+      , teams: [{team_id: '3T', seed: null, team: null}
+              , {team_id: '3B', seed: null, team: null}]
       , round: 'R2'
       , next_id: '1B'
     }
@@ -93,12 +93,11 @@ function App() {
     let fromGameIndex = getGameIndex(gameId)
     let toGameIndex = getGameIndex(toGameId)
     //if no game to update, stop the function
+    
     if (toGameIndex < 0) {
       return
     }
-
     let newGame = updateGameInfo(id, fromGameIndex, toGameIndex)
-
     setBracket(bracket.map((game) => game.id === toGameId
       ? newGame : game)
       )
