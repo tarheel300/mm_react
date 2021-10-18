@@ -40,14 +40,9 @@ p {
   text-align: left;
 }
 
-.team:hover {
-  background-color: pink;
-  width: 100%;
-}
-
 .team:active {
-  background-color: red;
-  transform: scale(1.2, 1.2);
+  transform: scale(1.1, 1.1);
+  font-weight: bold;
 }
 
 .seed {
