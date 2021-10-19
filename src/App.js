@@ -73,6 +73,7 @@ function App() {
     return bracket.findIndex(x => x.id === +gameId);
   }
 
+  //adding a comment here
   function updateGameInfo (id, fromIndex, toIndex) {
     let fromGame = JSON.parse(JSON.stringify(bracket[fromIndex]))
     let toGame = JSON.parse(JSON.stringify(bracket[toIndex]))
