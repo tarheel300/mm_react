@@ -14,6 +14,7 @@ function App() {
               , {team_id: '4B', seed: 8, team: 'Duke'}]
       , round: 'R3'
       , next_id: '2T'
+      , selected: false
     }
     , {
       id: 5
@@ -22,6 +23,7 @@ function App() {
               , {team_id: '5B', seed: 5, team: 'Boston College'}]
       , round: 'R3'
       , next_id: '2B'
+      , selected: false
     }
     , {
       id: 6
@@ -30,6 +32,7 @@ function App() {
               , {team_id: '6B', seed: 7, team: 'Notre Dame'}]
       , round: 'R3'
       , next_id: '3T'
+      , selected: false
     }
     , {
       id: 7
@@ -38,6 +41,7 @@ function App() {
               , {team_id: '7B', seed: 6, team: 'Miami'}]
       , round: 'R3'
       , next_id: '3B'
+      , selected: false
     }
     , {
       id: 2
@@ -46,6 +50,7 @@ function App() {
               , {team_id: '2B', seed: null, team: null}]
       , round: 'R2'
       , next_id: '1T'
+      , selected: false
     }
     , {
       id: 3
@@ -54,6 +59,7 @@ function App() {
               , {team_id: '3B', seed: null, team: null}]
       , round: 'R2'
       , next_id: '1B'
+      , selected: false
     }
     , {
       id: 1
@@ -62,6 +68,7 @@ function App() {
               , {team_id: '1B', seed: null, team: null}]
       , round: 'R1'
       , next_id: '0T'
+      , selected: false
     }]
     )
 
@@ -87,6 +94,10 @@ function App() {
     return toGame
   }
 
+  function toggleIndicator (id) {
+    setBracket(bracket.map((game) => game.id === id ? {...game, selected: !game.selected} : game))
+  }
+
   const selectWinner = (id) => {
     let gameId = id.toString().slice(0, -1)
     let toGameId = +getNextGameId(gameId);
@@ -98,9 +109,16 @@ function App() {
       return
     }
     let newGame = updateGameInfo(id, fromGameIndex, toGameIndex)
+
+    //making the main update around the selected team advancing to the next round
+    console.log(toGameId)
     setBracket(bracket.map((game) => game.id === toGameId
       ? newGame : game)
       )
+
+    console.log('Test')
+
+    //toggleIndicator(id)
   }
 
   return (
