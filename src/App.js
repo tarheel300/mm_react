@@ -3,7 +3,6 @@ import './App.css';
 import {useState} from 'react'
 import Header from './components/Header'
 import Bracket from './components/Bracket'
-import Champion from './components/Champion'
 
 function App() {
   //assumed to be sorted by round desc, game id asc
@@ -63,6 +62,12 @@ function App() {
               , {team_id: '1B', seed: null, team: null, selected: false}]
       , round: 'R1'
       , next_id: '0T'
+    }
+    , {
+      id: 0
+      , location: null
+      , teams: [{team_id: '0T', seed: 1, team: 'North Carolina', selected: false}]
+      , round: 'R0'
     }]
     )
 
@@ -123,7 +128,6 @@ function App() {
     <div className="container">
       <Header />
       <Bracket bracket={bracket} selectWinner={selectWinner}/>
-      <Champion />
     </div>
   );
 }
