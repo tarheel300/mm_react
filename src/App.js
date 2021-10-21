@@ -3,6 +3,7 @@ import './App.css';
 import {useState} from 'react'
 import Header from './components/Header'
 import Bracket from './components/Bracket'
+import Champion from './components/Champion'
 
 function App() {
   //assumed to be sorted by round desc, game id asc
@@ -122,6 +123,7 @@ function App() {
     <div className="container">
       <Header />
       <Bracket bracket={bracket} selectWinner={selectWinner}/>
+      <Champion />
     </div>
   );
 }
