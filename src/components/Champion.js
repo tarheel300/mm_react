@@ -1,9 +1,10 @@
 import React from 'react'
+import Team from './Team'
 
-const Champion = () => {
+const Champion = ({champion}) => {
     return (
-        <div>
-            <p>I'm Here!</p>
+        <div className="round champs">
+            <p>{champion.team}</p>
         </div>
     )
 }

@@ -66,7 +66,7 @@ function App() {
     , {
       id: 0
       , location: null
-      , teams: [{team_id: '0T', seed: 1, team: 'North Carolina', selected: false}]
+      , teams: [{team_id: '0T', seed: null, team: null, selected: false}]
       , round: 'R0'
     }]
     )

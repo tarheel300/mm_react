@@ -56,3 +56,10 @@ p {
 .seed {
   text-align: center;
 }
+
+.champs {
+  font-size: large;
+  margin-left: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
