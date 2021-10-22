@@ -12,7 +12,7 @@ p {
 
 .bracket {
   display: grid;
-  grid-template-columns: repeat(3,120px); /*Need to figure out how to make dynamic*/
+  grid-template-columns: repeat(3,120px) 200px; /*Need to figure out how to make dynamic*/
   grid-column-gap: 10px;
   margin-left: 10px;
 }
@@ -55,4 +55,11 @@ p {
 
 .seed {
   text-align: center;
+}
+
+.champs {
+  font-size: large;
+  margin-left: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
 }

@@ -62,6 +62,12 @@ function App() {
               , {team_id: '1B', seed: null, team: null, selected: false}]
       , round: 'R1'
       , next_id: '0T'
+    }
+    , {
+      id: 0
+      , location: null
+      , teams: [{team_id: '0T', seed: null, team: null, selected: false}]
+      , round: 'R0'
     }]
     )
 
