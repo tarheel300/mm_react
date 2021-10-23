@@ -110,7 +110,8 @@ function App() {
     let toGameIndex = getGameIndex(toGameId)
     //if no game to update, stop the function
 
-    //Need to revisit to figure out how to make game 1 winner bold with / without Champion component.
+    //Initially created to make sure there is no error for picking champ game picks
+    //Now is just to make sure that no potentially bad data will effect function of app
     if (toGameIndex < 0) {
       return
     }
