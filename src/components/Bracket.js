@@ -15,7 +15,6 @@ const Bracket = ({bracket, selectWinner}) => {
                         )
                     : null
                     )
-                //? <Champion bracket={bracket} round={round} key={round}/> 
                 : <Round bracket={bracket} selectWinner={selectWinner} round={round} key={round}/>
             ))}
         </div>
