@@ -127,6 +127,7 @@ function App() {
     //Probably shouldn't have name it that to begin with....
     setBracket(bracket.map((game) => game.teams = game.teams.map((team) => (gameCascade.includes(team.team_id) && team.team != teamName) ? {...team, team: null} : team)))
 
+    //test
     console.log(gameId)
     console.log(nextId)
     console.log(gameMap)
