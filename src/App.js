@@ -83,7 +83,7 @@ function App() {
   function updateGameInfo (id, fromIndex, toIndex) {
     let fromGame = JSON.parse(JSON.stringify(bracket[fromIndex]))
     let toGame = JSON.parse(JSON.stringify(bracket[toIndex]))
-    let teamIndex = fromGame.next_id.slice(-1) === 'T' ? 0 : 1
+    let teamIndex = fromGame.next_id.slice(-1) === 'T' ? 0 : 1 //assumption of order from T to B
     let fromTeam = JSON.parse(JSON.stringify(fromGame.teams.find(x => x.team_id === id)))
     let seed = fromTeam.seed
     let team = fromTeam.team
@@ -101,6 +101,62 @@ function App() {
     setBracket(bracket.map((game) => game.teams = game.teams.map((team) => team.team_id === oppId ? {...team, selected: false} : team)))
     setBracket(bracket.map((game) => game.teams = game.teams.map((team) => team.team_id === id ? {...team, selected: true} : team)))
     
+  }
+
+  function cascadeRemoval (gameId, teamId, gameIndex) {
+
+    let gameMap = {}
+    let gameCascade = []
+
+    let nextId = bracket.find(x => x.id === +gameId).next_id
+    let teamName = bracket[gameIndex].teams[teamId.slice(-1) === 'T' ? 0 : 1].team
+
+    //Find Parent / Child (Immediate) Relationship
+    bracket.map((game) => 
+      game.teams.map((team) => 
+        game.next_id ? gameMap[team.team_id] = game.next_id : null
+      )
+    )
+
+    while (gameMap[nextId]) {
+      gameCascade.push(gameMap[nextId])
+      nextId = gameMap[nextId]
+    }
+
+    //So close, but this is failing now - probably need to rename "team" property within teams key to be able to debug any further
+    //Probably shouldn't have name it that to begin with....
+    setBracket(bracket.map((game) => game.teams = game.teams.map((team) => (gameCascade.includes(team.team_id) && team.team != teamName) ? {...team, team: null} : team)))
+
+    console.log(gameId)
+    console.log(nextId)
+    console.log(gameMap)
+    console.log(gameCascade)
+    console.log(teamName)
+
+
+
+    /*
+    while (toId) {
+      console.log()
+    }
+    */
+
+    /*
+    //Too Broad - Need to focus in on only the chain of games of interest
+    bracket.forEach(function (game) {
+      if (game.next_id) {
+        //gameDependencies[game.id] = game.next_id.slice(0, -1)
+        console.log('Game:', game.id, ' Next Game:', game.next_id)
+        if( !(game.id in gameDependencies)) {
+          gameDependencies[game.id] = [game.next_id.slice(0, -1)]
+        } else {
+          gameDependencies[game.id].push(game.next_id.slice(0, -1))
+        }
+      }
+    })
+    */
+
+    //console.log(gameDependencies)
   }
 
   const selectWinner = (id) => {
@@ -123,6 +179,7 @@ function App() {
     //making the main update around the selected team advancing to the next round
     setBracket(bracket.map((game) => game.id === toGameId ? newGame : game))
     
+    cascadeRemoval(gameId, id, fromGameIndex)
   }
 
   return (
