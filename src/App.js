@@ -161,6 +161,7 @@ function App() {
   }
 
   const selectWinner = (id) => {
+    //need to refactor this, the various features are getting too inefficient / noticeable from front end.
     let gameId = id.toString().slice(0, -1)
     let toGameId = +getNextGameId(gameId);
     let fromGameIndex = getGameIndex(gameId)
