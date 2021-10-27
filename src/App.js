@@ -181,7 +181,8 @@ function App() {
     //making the main update around the selected team advancing to the next round
     setBracket(bracket.map((game) => game.id === toGameId ? newGame : game))
     
-    cascadeRemoval(gameId, id, fromGameIndex)
+    //removing until I can get it working
+    //cascadeRemoval(gameId, id, fromGameIndex)
   }
 
   return (

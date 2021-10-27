@@ -1,9 +1,17 @@
+:root {
+  --carolinaBlue: #8DBAEE;
+  --bballOrange: #F88158;
+  --courtBlack: #000000;
+  /*--hardwoodTan: ;*/
+  /*Need to find some way of making the carolinaBlue less intense*/
+}
+
 .App {
   text-align: center;
 }
 
 body {
-  background-color: lightgray;
+  background-color: var(--carolinaBlue);
 }
 
 p {
@@ -24,7 +32,7 @@ p {
 }
 
 .game {
-  background-color: #8DBAEE;
+  background-color: var(--bballOrange);
   display: grid;
   flex-direction: rows;
   grid-template-rows: repeat(2, 20px);
