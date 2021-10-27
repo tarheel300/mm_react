@@ -127,7 +127,7 @@ function App() {
     //Probably shouldn't have name it that to begin with....
     setBracket(bracket.map((game) => game.teams = game.teams.map((team) => (gameCascade.includes(team.team_id) && team.team != teamName) ? {...team, team: null} : team)))
 
-    //test
+    //test  
     console.log(gameId)
     console.log(nextId)
     console.log(gameMap)
@@ -161,6 +161,7 @@ function App() {
   }
 
   const selectWinner = (id) => {
+    //need to refactor this, the various features are getting too inefficient / noticeable from front end.
     let gameId = id.toString().slice(0, -1)
     let toGameId = +getNextGameId(gameId);
     let fromGameIndex = getGameIndex(gameId)
