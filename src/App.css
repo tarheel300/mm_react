@@ -2,6 +2,7 @@
   --carolinaBlue: #8DBAEE;
   --bballOrange: #F88158;
   --courtBlack: #000000;
+  --marginLeft: 5vw;
   /*--hardwoodTan: ;*/
   /*Need to find some way of making the carolinaBlue less intense*/
 }
@@ -20,9 +21,10 @@ p {
 
 .bracket {
   display: grid;
-  grid-template-columns: repeat(3,120px) 200px; /*Need to figure out how to make dynamic*/
+  grid-template-columns: repeat(4,120px) 200px; /*Need to figure out how to make dynamic*/
   grid-column-gap: 10px;
-  margin-left: 10px;
+  margin-left: var(--marginLeft);
+  height: 80vh;
 }
 
 .round {

@@ -8,34 +8,99 @@ function App() {
   //assumed to be sorted by round desc, game id asc
   const [bracket, setBracket] = useState(
     [{
+      id: 8
+      , location: 'Chapel Hill, NC'
+      , teams: [{team_id: '8T', seed: 1, team: 'North Carolina', selected: false}
+              , {team_id: '8B', seed: 16, team: 'Duke', selected: false}]
+      , round: 'R4'
+      , next_id: '4T'
+    }
+    , {
+      id: 9
+      , location: 'Greensboro, NC'
+      , teams: [{team_id: '9T', seed: 8, team: 'Syracuse', selected: false}
+              , {team_id: '9B', seed: 9, team: 'Boston College', selected: false}]
+      , round: 'R4'
+      , next_id: '4B'
+    }
+    , {
+      id: 10
+      , location: 'Roanoke, VA'
+      , teams: [{team_id: '10T', seed: 5, team: 'Virginia', selected: false}
+              , {team_id: '10B', seed: 12, team: 'Notre Dame', selected: false}]
+      , round: 'R4'
+      , next_id: '5T'
+    }
+    , {
+      id: 11
+      , location: 'Greensboro, NC'
+      , teams: [{team_id: '11T', seed: 4, team: 'Florida State', selected: false}
+              , {team_id: '11B', seed: 13, team: 'Miami', selected: false}]
+      , round: 'R4'
+      , next_id: '5B'
+    }
+    , {
+      id: 12
+      , location: 'Greensboro, NC'
+      , teams: [{team_id: '12T', seed: 6, team: 'Kansas', selected: false}
+              , {team_id: '12B', seed: 11, team: 'UCLA', selected: false}]
+      , round: 'R4'
+      , next_id: '6T'
+    }
+    , {
+      id: 13
+      , location: 'Greensboro, NC'
+      , teams: [{team_id: '13T', seed: 3, team: 'Baylor', selected: false}
+              , {team_id: '13B', seed: 14, team: 'Michigan', selected: false}]
+      , round: 'R4'
+      , next_id: '6B'
+    }
+    , {
+      id: 14
+      , location: null
+      , teams: [{team_id: '14T', seed: 7, team: 'UMBC', selected: false}
+              , {team_id: '14B', seed: 10, team: 'UConn', selected: false}]
+      , round: 'R4'
+      , next_id: '7T'
+    }
+    , {
+      id: 15
+      , location: null
+      , teams: [{team_id: '15T', seed: 2, team: 'Maryland', selected: false}
+              , {team_id: '15B', seed: 15, team: 'Loyola-Chicago', selected: false}]
+      , round: 'R4'
+      , next_id: '7B'
+    }
+      
+    , {
       id: 4
       , location: 'Chapel Hill, NC'
-      , teams: [{team_id: '4T', seed: 1, team: 'North Carolina', selected: false}
-              , {team_id: '4B', seed: 8, team: 'Duke', selected: false}]
+      , teams: [{team_id: '4T', seed: null, team: null, selected: false}
+              , {team_id: '4B', seed: null, team: null, selected: false}]
       , round: 'R3'
       , next_id: '2T'
     }
     , {
       id: 5
       , location: 'Greensboro, NC'
-      , teams: [{team_id: '5T', seed: 4, team: 'Syracuse', selected: false}
-              , {team_id: '5B', seed: 5, team: 'Boston College', selected: false}]
+      , teams: [{team_id: '5T', seed: null, team: null, selected: false}
+              , {team_id: '5B', seed: null, team: null, selected: false}]
       , round: 'R3'
       , next_id: '2B'
     }
     , {
       id: 6
       , location: 'Roanoke, VA'
-      , teams: [{team_id: '6T', seed: 2, team: 'Virginia', selected: false}
-              , {team_id: '6B', seed: 7, team: 'Notre Dame', selected: false}]
+      , teams: [{team_id: '6T', seed: null, team: null, selected: false}
+              , {team_id: '6B', seed: null, team: null, selected: false}]
       , round: 'R3'
       , next_id: '3T'
     }
     , {
       id: 7
       , location: 'Greensboro, NC'
-      , teams: [{team_id: '7T', seed: 3, team: 'Florida State', selected: false}
-              , {team_id: '7B', seed: 6, team: 'Miami', selected: false}]
+      , teams: [{team_id: '7T', seed: null, team: null, selected: false}
+              , {team_id: '7B', seed: null, team: null, selected: false}]
       , round: 'R3'
       , next_id: '3B'
     }
