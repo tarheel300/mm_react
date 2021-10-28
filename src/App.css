@@ -11,6 +11,11 @@
   text-align: center;
 }
 
+header {
+  border: black;
+  border: 2px;
+}
+
 body {
   background-color: var(--carolinaBlue);
 }
@@ -22,7 +27,7 @@ p {
 .bracket {
   display: grid;
   grid-template-columns: repeat(4,120px) 200px; /*Need to figure out how to make dynamic*/
-  grid-column-gap: 10px;
+  grid-column-gap: 2vw; 
   margin-left: var(--marginLeft);
   height: 80vh;
 }
