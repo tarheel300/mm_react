@@ -47,6 +47,7 @@ p {
   align-content: center;
   margin: 10px;
   overflow-anchor: hidden;
+  box-shadow: 2px 2px rgb(71, 71, 71);
 }
 
 .team {
